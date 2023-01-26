@@ -40,6 +40,9 @@ nav .navbar a:hover{
 nav .navbar a.active{
 	color: var(--main-color);
 }
+nav .main a.active{
+	color: var(--main-color);
+}
 nav .main{
 	display: flex;
 	align-items: center;
