@@ -2,7 +2,7 @@
 {% block content %}
     <div class="form-container">
         <section class="container">
-            <h2>Registration</h2>
+            <h2>{{selected_role_capitalize}} Registration</h2>
             <form action="registrate_user" class="form" method="post">
                 {% csrf_token %}
                 <div class="input-box">
@@ -26,8 +26,8 @@
                     <label>Password</label>
                     <input type="password" id="password" placeholder="Enter password" name="password" required />
                 </div>
-
-                <input type="submit" value="Create an account " id="submit-form-btn">
+                <input type="text" value='{{selected_role}}'  name="role" style='display:none;'/>
+                <input type="submit" value="Sign up as a {{selected_role_capitalize}}" id="submit-form-btn">
             </form>
         </section>
     </div>

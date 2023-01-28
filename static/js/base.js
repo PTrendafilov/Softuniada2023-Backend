@@ -7,7 +7,6 @@ const profileLink= document.getElementById('profile-link');
 const loginLink= document.getElementById('login-link');
 const registerLink= document.getElementById('register-link');
 const myJobLink = document.getElementById('my-job-link');
-console.log(document.URL);
 if(document.URL==='http://127.0.0.1:8000/projects/'){
 	jobsLinkElement.classList.add('active');
 	homeLinkElement.classList.remove('active');
@@ -32,7 +31,7 @@ if(document.URL==='http://127.0.0.1:8000/accounts/'){
 	loginLink.classList.add('active');
 	homeLinkElement.classList.remove('active');
 }
-if(document.URL==='http://127.0.0.1:8000/accounts/registration_page'){
+if(document.URL==='http://127.0.0.1:8000/accounts/registration_page' || document.URL==='http://127.0.0.1:8000/accounts/choose_role'){
 	registerLink.classList.add('active');
 	homeLinkElement.classList.remove('active');
 }

@@ -14,13 +14,15 @@
                     </thead>
                     <tbody id="leaderboard">
                         {% for user in users %}
-                        <tr>
-                               <td class="iota__Id">{{user.id}}</th>
-                               <td class="iota__fname">{{user.first_name}}</td>
-                               <td class="iota__lname">{{user.last_name}}</td>
-                               <!--<td class="iota__profile">Profile</td>-->
-                               <td class="iota__points">{{user.points}}</td>
-                        </tr>
+                            {% if user.role == 'freelancer'%}
+                                <tr>
+                                    <td class="iota__Id">{{user.id}}</th>
+                                    <td class="iota__fname">{{user.first_name}}</td>
+                                    <td class="iota__lname">{{user.last_name}}</td>
+                                    <!--<td class="iota__profile">Profile</td>-->
+                                    <td class="iota__points">{{user.points}}</td>
+                                </tr>
+                            {%endif%}
                         {% endfor %}
                     </tbody>
                 </table>

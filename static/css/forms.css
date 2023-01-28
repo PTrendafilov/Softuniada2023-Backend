@@ -141,3 +141,40 @@
 .dropdown{
   background-color: #35363a;
 }
+.role-container .image-continer i{
+  font-size: 24px;
+
+  width: 30px;
+  height: 30px;
+}
+.role-container .image-continer{
+  text-align: center;
+}
+.role-container{
+  position: relative;
+  display: inline-block;
+  margin: 0 0;
+  text-align: center;
+  width: 30%;
+  margin-right: 20px;
+  border: 2px solid #35363a;
+  padding: 15px;
+  border-radius: 5px;
+}
+.role-container input[type="radio"]{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  accent-color: #46e0ba;
+}
+.role-container:hover{
+  border: 2px solid #46e0ba;
+  transition: all 0.4s ease;
+}
+#role-form{
+  margin-left: 12px;
+}
+.clicked{
+  border: 2px solid #46e0ba;
+
+}

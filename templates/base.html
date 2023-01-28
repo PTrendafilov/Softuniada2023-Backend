@@ -28,10 +28,12 @@
 		<ul class="navbar">
 			<li><a href="/" class="active" id='home-link'>Home</a></li>
 			<li><a href="/projects/" id='projects-link'>Jobs</a></li>
-			{% if request.user.is_authenticated %}
+			{% if request.user.is_authenticated and  request.user.role == 'client' %}
 				<li><a href="/projects/create_job_page" id = "projects-create-link">Create Jobs</a></li>
 			{% endif %}
-			<li><a href="/scoreboard" id="scoreboard-link">Scoreboard</a></li>
+			{% if request.user.is_authenticated and  request.user.role == 'freelancer' %}
+				<li><a href="/scoreboard" id="scoreboard-link">Scoreboard</a></li>
+			{% endif %}
 			{% if request.user.is_authenticated %}
 				<li><a href="/teams" id="teams-link">Teams</a></li>
 			{% endif %}
@@ -44,7 +46,7 @@
 				<li><a href="/projects/jobs_created_by_user/" id="my-job-link">My jobs</a></li>
 			{% else %}
 				<a href="/accounts" class="user" id="login-link"><i class="ri-user-fill"></i>Sign In</a>
-				<a href="/accounts/registration_page" id="register-link">Register</a>
+				<a href="/accounts/choose_role" id="register-link">Register</a>
 				<div class="bx bx-menu" id="menu-icon"></div>
 			{% endif %}
 		</div>
