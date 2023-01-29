@@ -23,9 +23,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bbm0he)a4(j^k%j7kqkb^70-av!%-thm$dnu#(9%z5sff=@)b@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = ['project-hunters.herokuapp.com', '127.0.0.1']
+if 'DYNO' in os.environ:
+    DEBUG = False
+else:
+    DEBUG = True
+
+# Update the following line to your desired host
+
+# example:
+# host = '0.0.0.0'
+host = os.environ.get('HOST', '0.0.0.0')
+port = int(os.environ.get('PORT', 8000))
 
 
 # Application definition
