@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'scoreboard',
     'teams',
     'profile_details',
+    'cv',
 ]
 
 MIDDLEWARE = [
