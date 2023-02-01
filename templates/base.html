@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Poject Hunters</title>
-	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'css/navbar.css' %}">
 	<link rel="stylesheet" type="text/css" href="/static/css/footer.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/forms.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/front-page.css">
@@ -31,10 +32,13 @@
 			{% if request.user.is_authenticated and  request.user.role == 'client' %}
 				<li><a href="/projects/create_job_page" id = "projects-create-link">Create Jobs</a></li>
 			{% endif %}
+			{% if request.user.is_authenticated and  request.user.role == 'teamleader' %}
+				<li><a href="/teams/create_team" id = "team-create-link">Create a Team</a></li>
+			{% endif %}
 			{% if request.user.is_authenticated and  request.user.role == 'freelancer' %}
 				<li><a href="/scoreboard" id="scoreboard-link">Scoreboard</a></li>
 			{% endif %}
-			{% if request.user.is_authenticated %}
+			{% if request.user.is_authenticated and request.user.role == 'freelancer' or request.user.role == 'teamleader'%}
 				<li><a href="/teams" id="teams-link">Teams</a></li>
 			{% endif %}
 		</ul>
