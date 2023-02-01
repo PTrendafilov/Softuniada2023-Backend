@@ -7,6 +7,7 @@ const profileLink= document.getElementById('profile-link');
 const loginLink= document.getElementById('login-link');
 const registerLink= document.getElementById('register-link');
 const myJobLink = document.getElementById('my-job-link');
+const teamCreateLink = document.getElementById('team-create-link');
 if(document.URL==='http://127.0.0.1:8000/projects/'){
 	jobsLinkElement.classList.add('active');
 	homeLinkElement.classList.remove('active');
@@ -37,5 +38,9 @@ if(document.URL==='http://127.0.0.1:8000/accounts/registration_page' || document
 }
 if(document.URL==='http://127.0.0.1:8000/projects/jobs_created_by_user/'){
 	myJobLink.classList.add('active');
+	homeLinkElement.classList.remove('active');
+}
+if(document.URL==='http://127.0.0.1:8000/teams/create_team'){
+	teamCreateLink.classList.add('active');
 	homeLinkElement.classList.remove('active');
 }
