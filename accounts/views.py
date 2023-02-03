@@ -4,7 +4,18 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from .models import Profile as User
-# Create your views here.
+"""
+The provided code defines several views for a Django-based web application, related to user registration, login, and logout functionality.
+
+choose_role: returns a form for choosing a role.
+index: returns a login form.
+registration_page: returns a registration form with a selected role passed as a context variable.
+registrate_user: creates a new user based on the POST data and redirects to the login page.
+login: authenticates a user based on email and password, logs them in if authentication is successful and redirects to a projects page.
+login_page: returns a login form.
+logout_page: logs out a user and redirects to the index page.
+
+"""
 def choose_role(request):
     return render(request, 'choose-role-form.html')
 def index(request):
