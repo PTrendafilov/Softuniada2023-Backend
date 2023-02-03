@@ -77,18 +77,7 @@
   color: #ffffff;
   font-size: 1rem;
 }
-.form-container .form button {
-  height: 55px;
-  width: 100%;
-  color: #46e0ba;
-  font-size: 1rem;
-  font-weight: 400;
-  margin-top: 30px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background: #35363a;
-}
+
 .form-container .form button:hover {
   background: #35363a;
 }
@@ -176,5 +165,4 @@
 }
 .clicked{
   border: 2px solid #46e0ba;
-
 }

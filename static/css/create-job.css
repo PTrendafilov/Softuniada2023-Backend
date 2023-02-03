@@ -1,0 +1,53 @@
+.newtask {
+    width: 80%;
+  }
+  
+.form-container .form button.add {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  float: right;
+  width: 20%;
+  height: 30px;
+  margin-top: -40px;
+  position: relative;
+  background-color:#35363a ;
+  color: #46e0ba;
+  font-size: 20px;
+}
+  
+.form-container .form button.delete{
+  float: right;
+  background-color:#35363a ;
+  border: none;
+  color: #46e0ba;
+  background-color: #46e0ba;
+	color: #35363a;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: end;
+  margin-left: auto;
+  order: 2;
+}
+.form-container .form button.delete:hover{
+  cursor: pointer;
+}
+.form-container .form .task{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #46e0ba;
+}
+.form-container .taskname{
+  background-color: rgb(224, 224, 224);
+	color: black;
+  margin-top: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 5px;
+}
+#responsibilities{
+  width: 100%;
+}
