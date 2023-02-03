@@ -7,30 +7,41 @@
 					{% csrf_token %}
 					<div class="input-box">
 						<label>Project name</label>
-						<input type="text" placeholder="New project" name='name' required />
+						<input type="text" placeholder="New project" />
 					</div>
 					<div class="input-box">
 						<label>Description</label>
 						<textarea id="description" name="description" rows="4" cols="1" class="textarea" placeholder="A short description"></textarea>
 					</div>
-			
 					<div class="input-box">
-						<label>Details</label>
-						<textarea id="details" name="details" rows="4" cols="1" class="textarea" placeholder="Project details"></textarea>
-					</div>
-			
-					<div class="input-box">
-						<label>Pay</label>
-						<input type="text" placeholder="5$/h, 0.05$ per line, 100$, etc" name='payment' required />
-					</div>       
-					{% if request.user.is_superuser %}
-						<div class="input-box">
-							<label>Current bids</label>
-							<input type="number" placeholder="0" min="0" required  name='bids' />
+						<div class="responsibilities">
+							<label>Responsibilities</label>
+							<div class="newtask">
+								<input id='responsibilities' placeholder="Responsibilities">
+	
+							</div>
+							<button class="add">Add</button>
 						</div>
-					{% endif %}
+					</div>
+					<div class="input-box">
+						<div class="skills">
+							<label>Skills</label>
+							<div class="newtask">
+								<input class="textbox" type="text" placeholder="Add Skills">
+							</div>
+							<button class="add">Add</button>
+						</div>
+					</div>
+					<div class="input-box">
+						<label>Budget</label>
+						<input type="text" placeholder="5$/h, 0.05$ per line, 100$, etc" />
+					</div>
+
+					<div class="input-box">
+						<label>Current bids</label>
+						<input type="number" placeholder="0" min="0" />
+					</div>
 					<input type="submit" value="Create job" id="submit-form-btn">
-				</form>
-			</section>
 	</div>
+	<script src='/static/js/skills.js'></script>
 {% endblock %}
