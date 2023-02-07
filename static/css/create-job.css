@@ -1,8 +1,8 @@
-.newtask {
-    width: 80%;
-  }
-  
-.form-container .form button.add {
+.new-skill {
+  width: 80%;
+}
+
+.form-container .form button#add-skill {
   border: none;
   cursor: pointer;
   outline: none;
@@ -10,19 +10,18 @@
   width: 20%;
   height: 30px;
   margin-top: -40px;
-  position: relative;
-  background-color:#35363a ;
+  background-color: #35363a;
   color: #46e0ba;
   font-size: 20px;
 }
-  
-.form-container .form button.delete{
+
+.form-container .form button.delete {
   float: right;
-  background-color:#35363a ;
+  background-color: #35363a;
   border: none;
   color: #46e0ba;
   background-color: #46e0ba;
-	color: #35363a;
+  color: #35363a;
   padding-right: 5px;
   padding-left: 5px;
   border-radius: 50%;
@@ -31,23 +30,81 @@
   margin-left: auto;
   order: 2;
 }
-.form-container .form button.delete:hover{
+
+.form-container .form button.delete:hover {
   cursor: pointer;
 }
-.form-container .form .task{
-  height: 50px;
+
+.form-container .form .skill,  .form-container .form .responsibility{
   display: flex;
   align-items: center;
   border-bottom: 1px solid #46e0ba;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
-.form-container .taskname{
+
+.form-container .skill-text {
   background-color: rgb(224, 224, 224);
-	color: black;
+  color: black;
   margin-top: 10px;
   padding-right: 15px;
   padding-left: 15px;
   border-radius: 5px;
 }
-#responsibilities{
-  width: 100%;
+
+.text {
+  margin-top: -37px;
+  margin-left: 35px;
+  color: #46e0ba;
+}
+
+.form-container input.radio-btn {
+  display: flex;
+  width: 20px;
+  accent-color: #46e0ba;
+  margin-right: 60px;
+}
+
+.payment-cost{
+  width: 30%!important;
+}
+.select{
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+  border-radius: 5px;
+  height: 50px;
+  background-color: #46e0ba;
+  border: none;
+  font-size :16px;
+}
+
+#responsibility-textarea{
+
+  position: relative;
+  width: 80%;
+  outline: none;
+}
+.input-box{
+  position: relative;
+}
+.form-container .form button#add-responsibility{
+  width: 20%;
+  cursor: pointer;
+  border: none;
+  background-color: #35363a;
+  color: #46e0ba;
+  position: absolute;
+  right: 0;
+  font-size: 20px;
+  top: 35px;
+  height: 80px;
+}
+.responsibility-text {
+  max-width: 80%;
+  word-wrap: break-word;
+}
+.responsibility::before {
+  content: "•";
+  padding-right: 10px;
+  color: #46e0ba;
 }
