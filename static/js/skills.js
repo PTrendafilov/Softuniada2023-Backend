@@ -1,5 +1,7 @@
 const addSkill = document.querySelector('#add-skill');
 addSkill.addEventListener('click', function (event) {
+    const optionsAutocomplete = document.querySelector('#options-skills-autocomplete');
+    console.log(optionsAutocomplete);
     event.preventDefault();
     const newSkillInput = addSkill.previousElementSibling.querySelector('input');
     if (newSkillInput.value.length === 0) {
@@ -14,5 +16,6 @@ addSkill.addEventListener('click', function (event) {
         });
         SkillsContainer.appendChild(newSkill);
         newSkillInput.value = "";
+        optionsAutocomplete.style.display = 'none';
     }
 });

@@ -108,3 +108,26 @@
   padding-right: 10px;
   color: #46e0ba;
 }
+.skills-autocomplete-option:first-child{
+  margin-top: 0px;
+}
+.skills-autocomplete-option{
+  color: black;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin-right: 0.5px;
+}
+#options-skills-autocomplete{
+  border-top: 2px solid rgb(207, 207, 207);
+  padding-top: 5px;
+  padding-bottom: 10px;
+  background-color: white;
+  width: 80%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.skills-autocomplete-option:hover{
+  cursor: pointer;
+  background-color: rgb(207, 207, 207);
+}
