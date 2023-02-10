@@ -1,32 +1,62 @@
 {% extends 'base.html' %}
 {% block content %}
-	<div class="job-details-container">
-        <div class="box">
+    <link rel="stylesheet" type="text/css" href="/static/css/job-details-2.css">
+	<div class="form-container">
+		<section class="container">
+            <h2>{{project.name}}</h2>
             <div class="basic-info">
-                <h1>{{project.name}}</h1>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
+                <div class="left-part">
+                    <span class='info-spans' id='skills-info'>Skills: <span style='color: #46e0ba;'>{{project.skills}}</span></span><br>
+                    <span class='info-spans' id='budget-info'>Budget: <span style='color: #46e0ba;'>{{project.payment}}</span></span>
                 </div>
-                <span style="color:white">{{project.pay}}</span>
+                <div class="right-part">
+                    <span class='info-spans' id='posted-info'>Posted: <span style='color: #46e0ba;'>{{project.time_from_creating}}</span> ago</span><br>
+                    <span class='info-spans' id='bids-info'>Bids: <span style='color: #46e0ba;'>{{project.bids}}</span></span>
+                </div>
+            </div>
+            <div id='description'>
+                    <span>Description: </span>
+                    <p>{{project.description}}</p>
+                    <span>Responsibilities: </span>
+                    <ul id='responsibility-list'>
+                        {%for responsibility in project.responsibilities%}
+                            <li>{{responsibility}}</li>
+                        {%endfor%}
+                    </ul>
+            </div>
+            <hr>
+            
+            <div id="application">
+                <h2>Application</h2>
+                <form action="/projects/aplly/{{project.id}}" class="form" method='post'>
+                    <div class="input-box">
+                        <label>Bid</label>
+                        <div id="textBoxDivFirst">
+                            <div class="currency">
+                                <input class="const payment-cost" name='bid' type="number" placeholder='10' min='0'>
+                                <select class="select" id="select1" name='currency'>
+                                <option value="EUR">EUR</option>
+                                <option value="USD">USD</option>
+                                <option value="GBP">GBP</option>
+                                <option value="BGN">BGN</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label>Cover letter</label>
+                        <textarea id="cover-letter" name="cover-letter" rows="4" cols="1" class="textarea" placeholder="Cover letter"></textarea>
+                    </div>
+                    <input type="submit" value="Apply" id="submit-form-btn">    
+                </form>
+            </div>
                 <div class="options">
-                    <a href="#" style ="text-align:center; width: 150px; font-size:18px; background-color: #46e0ba">Go to job</a>
                     {% if flag %}
-                        <a href="/projects/project-edit/{{project.id}}" style ="text-align:center; width: 100px; font-size:18px; background-color: #1f54b6">Edit</a>
-                        <a href="/projects/project-delete/{{project.id}}" style ="text-align:center; width: 100px; font-size:18px; background-color: #e22222">Delete</a>
-                    {% endif %}
+                        <a href="/projects/project-edit/{{project.id}}" id='edit-btn'><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="/projects/project-delete/{{project.id}}" id='delete-btn'><i class="far fa-trash-alt"></i></a>
+                    {% endif %}   
                 </div>
-            </div>
-            <div class="description">
-                <p>{{project.description}}</p>
-                    <span style="font-size: 18px; font-weight: bold; color:white">Bids: {{project.bids}}</span>
-                    <span style="font-size: 18px; font-weight: bold; color:white">Posted: {{project.time_from_creating}} ago</span>
-                    <span style="font-size: 18px; font-weight: bold; color:white">Level: Expert </span>
-            </div>
-        </div>
+            </section>
     </div>
 
 {% endblock %}

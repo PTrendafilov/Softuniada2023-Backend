@@ -5,9 +5,10 @@
 		<section class="container">
 			<h2>Create a new Job</h2>
 			<form action="/projects/create_project/" class="form" method='post'>
+				{% csrf_token %}
 				<div class="input-box">
 					<label>Project name</label>
-					<input type="text" placeholder="New project" />
+					<input type="text" placeholder="New project" name='title'/>
 				</div>
 				<div class="input-box">
 					<label>Description</label>
@@ -15,7 +16,8 @@
 				</div>
 				<div class="input-box">
 					<label>Responsibilities</label>
-					<textarea name="responsibilities" rows="4" cols="1" class="textarea" placeholder="Responsibilities" id='responsibility-textarea'></textarea>
+					<textarea rows="4" cols="1" class="textarea" placeholder="Responsibilities" id='responsibility-textarea'></textarea>
+					<input name='responsibilities' value='' style='display:none;' id='responsibility-values' class="textbox" type="text">
 					<button class="add" id='add-responsibility'>Add</button>
 				</div>
 				<div class="input-box">
@@ -23,56 +25,49 @@
 						<label>Skills</label>
 						<div class="new-skill" id='skills-autocomplete-box'>
 							<input id='skill-textbox' class="textbox" type="text" placeholder="Add Skills">
+							<input name='skills' value='' style='display:none;' id='skill-values' class="textbox" type="text">
 						</div>
+						
 						<button class="add" id='add-skill'>Add</button>
 					</div>
 				</div>
 				<div class="input-box">
 					<label style='font-size:20px;'>Budget</label>
-					<input type="radio" class='radio-btn' name="payment-type" id='payment-type-hour'>
+					<input type="radio" class='radio-btn' value='payment-for-hour' name="payment-type" id='payment-type-hour'>
 					<label class="text" for="payment-type-hour">Payment for hour</label>
 					<div id="textBoxDivFirst" style="display:none;">
 						<div class="currency">
-							<input class="const payment-cost" type="number" placeholder='10' min='0' id='payment-type-hour-input'>
-							<select class="select" id="select1">
-							<option value="USD">USD</option>
+							<input class="const payment-cost" name='payment-hour' type="number" placeholder='10' min='0' id='payment-type-hour-input'>
+							<select class="select" id="select1" name='currency'>
 							<option value="EUR">EUR</option>
+							<option value="USD">USD</option>
 							<option value="GBP">GBP</option>
+							<option value="BGN">BGN</option>
 							</select>
 						</div>
 					</div>
-					<input type="radio" class='radio-btn' name="payment-type" id='payment-type-project'>
+					<input type="radio" class='radio-btn' value='payment-for-project' name="payment-type" id='payment-type-project'>
 					<label class="text" for="payment-type-project">Payment for project</label>
 					<div id="textBoxDivSecond" style="display:none;">
 						<div class="currency">
-							<input class="const payment-cost" type="number" min='0' placeholder='150' id='payment-type-project-input' >
-							<select class="select" id="select2">
+							<input class="const payment-cost" name='payment-project' type="number" min='0' placeholder='150' id='payment-type-project-input' >
+							<select class="select" id="select2" name='currency'>
+							<option value="EUR">EUR</option>
 							<option value="USD">USD</option>
-						<option value="EUR">EUR</option>
-						<option value="GBP">GBP</option>
+							<option value="GBP">GBP</option>
+							<option value="BGN">BGN</option>
 						</select>
 						</div>
 					</div>
 				</div>
-				<div class="input-box">
-					<label style='font-size:20px;'>Level</label>
-					<input type="radio" class='radio-btn' name="level-type" id='level-hard'>
-					<label class="text" for='level-hard'>Hard</label>
-					<input type="radio" class='radio-btn' name="level-type" id='level-medium'>
-					<label class="text" for='level-medium'>Medium</label>
-					<input type="radio" class='radio-btn' name="level-type" id='level-easy'>
-					<label class="text" for='level-easy'>Easy</label>
-				</div>
-				<div class="input-box">
-					<label>Current bids</label>
-					<input type="number" placeholder="0" min="0" />
-					</di v>
+			
 					<input type="submit" value="Create job" id="submit-form-btn">
-				</div>
+				
 	</div>
 	</div>
 	
 	<script src='/static/js/responsibility.js'></script>
 	<script src='/static/js/radio_button.js'></script>
-	<script src='/static/js/skills-autocomplete.js'></script><script src='/static/js/skills.js'></script>
+	<script src='/static/js/skills-autocomplete.js'></script>
+	<script src='/static/js/skills.js'></script>
 {% endblock %}
