@@ -19,5 +19,3 @@ class CV(models.Model):
     about_me = models.TextField()
     experiences = models.ManyToManyField(Experience)
     education = models.ManyToManyField(Education)
-    
-    
