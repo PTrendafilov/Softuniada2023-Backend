@@ -39,10 +39,22 @@ def create_job_page(request):
     return render(request, 'create.html')
 def create_project(request):
     project = Project()
-    project.name = request.POST['name']
+    project.name = request.POST['title']
     project.description = request.POST['description']
-    project.details = request.POST['details']
-    project.pay = request.POST['payment']
+    project.skills = request.POST['skills']
+    project.responsibilities = request.POST['responsibilities']
+    currency_symbol = '$'
+    if request.POST['currency']=='EUR':
+        currency_symbol = '€'
+    if request.POST['currency']=='USD':
+        currency_symbol = '$'
+    if request.POST['currency']=='BGN':
+        currency_symbol = 'LV'
+    if request.POST['payment-type']=='payment-for-hour':
+        project.payment = request.POST['payment-hour'] + currency_symbol + '/h'
+    if request.POST['payment-type']=='payment-for-project':
+        project.payment = request.POST['payment-project'] + currency_symbol
+    print(project.payment)
     project.creator = User.objects.get(username=request.user.username)
     project.save()
     return redirect(jobs_created_by_user)
@@ -58,7 +70,9 @@ def details_job(request, id):
     project=Project.objects.get(id=id)
     project.time_from_creating = " ".join(get_time_from_creating(project.date_created))
     flag=request.user.username==project.creator.username
+    is_freelancer=request.user.username==project.creator.username
     print(flag)
+    project.responsibilities = project.responsibilities.split('(*)')
     return render(request, 'job-details.html', {'project':project, 'flag':flag})
 def project_delete(request, id):
     Project.objects.get(id=id).delete()

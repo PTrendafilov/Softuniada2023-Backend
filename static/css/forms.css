@@ -35,48 +35,6 @@
 .form-container .input-box input:focus {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
-.form-container .form .column {
-  display: flex;
-  column-gap: 15px;
-}
-.form-container .form .gender-box {
-  margin-top: 20px;
-}
-.form-container .gender-box h3 {
-  color: rgb(255, 255, 255);
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 8px;
-}
-.form-container .form :where(.gender-option, .gender) {
-  display: flex;
-  align-items: center;
-  column-gap: 50px;
-  flex-wrap: wrap;
-}
-.form-container .form .gender {
-  column-gap: 5px;
-}
-.form-container .gender input {
-  accent-color: rgb(255, 255, 255);
-}
-.form-container .form :where(.gender input, .gender label) {
-  cursor: pointer;
-}
-.form-container .gender label {
-  color: #000000;
-}
-.form-container .address :where(input, .select-box) {
-  margin-top: 15px;
-}
-.form-container .select-box select {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  color: #ffffff;
-  font-size: 1rem;
-}
 
 .form-container .form button:hover {
   background: #35363a;

@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
+favicon_view = RedirectView.as_view(url=staticfiles_storage.url('favicon.ico'), permanent=True)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
@@ -25,4 +27,5 @@ urlpatterns = [
     path('chat/', include('chat.urls')),
     path('teams/', include('teams.urls')),
     path('profile/', include('profile_details.urls')),
+    path('favicon.ico', favicon_view),
 ]
