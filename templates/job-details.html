@@ -25,10 +25,11 @@
                     </ul>
             </div>
             <hr>
-            
+            {% if is_freelancer and not already_made_offer%}
             <div id="application">
                 <h2>Application</h2>
                 <form action="/projects/aplly/{{project.id}}" class="form" method='post'>
+                    {%csrf_token%}
                     <div class="input-box">
                         <label>Bid</label>
                         <div id="textBoxDivFirst">
@@ -50,6 +51,9 @@
                     <input type="submit" value="Apply" id="submit-form-btn">    
                 </form>
             </div>
+            {%else%}
+                <h2>You have already made a bid!</h2>
+            {%endif%}
                 <div class="options">
                     {% if flag %}
                         <a href="/projects/project-edit/{{project.id}}" id='edit-btn'><i class="fa-regular fa-pen-to-square"></i></a>
